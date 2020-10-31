@@ -199,18 +199,21 @@ const ventasSucursal = sucursal => {
 };
 
 //5 - test
+
 describe('ventasSucursal: devuelve el total de ventas de la sucursal', () => { 
+  beforeEach(() =>{
     test("Devuelve un número, el restulado de ventas de esa sucursal", () => {
-    expect(ventasSucursal('Centro')).toBe(1140);
-    expect(ventasSucursal('Caballito')).toBe(1130);
+      expect(ventasSucursal('Centro')).toBe(1140);
+      expect(ventasSucursal('Caballito')).toBe(1130);
+      });
+      test("Devuelve cero(0) si la sucursal no existe", () => {
+      expect(ventasSucursal('Sur')).toBe(0);
+      });
+      test("Devuelve cero(0) si el nombre de la sucursal se ingresa como array", () => {
+      expect(ventasSucursal(['Centro'])).toBe(0);
+      }); 
     });
-    test("Devuelve cero(0) si la sucursal no existe", () => {
-    expect(ventasSucursal('Sur')).toBe(0);
-    });
-    test("Devuelve cero(0) si el nombre de la sucursal se ingresa como array", () => {
-    expect(ventasSucursal(['Centro'])).toBe(0);
-    });
-  });
+});
   
     
 //--------------------------------------------------------------------------//
@@ -226,18 +229,15 @@ const mejorVendedora = () => {
           mayorVendedora = comp;
       }
   });
-  //for(let i = 0; i < vendedoras.length; i++){
-  //    if(mayor < ventasVendedora(vendedoras[i])){
-  //        mayor = ventasVendedora(vendedoras[i]);
-  //        mayorVendedora = vendedoras[i];
-  //    }
-  //};
+;
   return mayorVendedora;
 };
 //6 - test
 describe('mejorVendedora: devuelve el nombre de la vendedora que más ingresos generó',() =>{ 
+  // beforeEach(() =>{
     test("Devuelve el nombre de la vendedora que más ventas generó", () => {
     expect(mejorVendedora()).toBe("Grace");
+    // });
     });
 }); 
 
@@ -305,12 +305,12 @@ const agregarVenta = (dia, mes, anio, vendedora, sucursal, componentes) => {
   ventas.push(nuevaVenta);
 
   return nuevaVenta;
-    
 };
 
 //9 - test
-test("Probar si agrega nueva venta a la lista de ventas", () => {
-    agregarVenta(14,8,2020, "Ada", "Caballito", [ 'Monitor ASC 543' ,'Motherboard ASUS 1200' , 'RAM Quinston' ] );
-expect(ventas.length).toBe(7); 
-    });
-
+describe("agregarVenta: devuelve un nuevo array con los valores ingresados como parámetros", () => { 
+  test("Probar si agrega nueva venta a la lista de ventas", () => {
+      agregarVenta(14,8,2020, "Ada", "Caballito", [ 'Monitor ASC 543' ,'Motherboard ASUS 1200' , 'RAM Quinston' ] );
+  expect(ventas.length).toBe(7); 
+  });
+});

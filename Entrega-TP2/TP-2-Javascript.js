@@ -115,7 +115,7 @@ const ventasSucursal = sucursal => {
         return precioMaquina(resultadoComponentes.flat());
     };
 //--------------------------------------------------------------------------//
-//6
+
 //6 - función - ERROR MUY RARO EN EL TEST (!!)
 const mejorVendedora = () => {
     
@@ -128,12 +128,6 @@ const mejorVendedora = () => {
         }
     });
 
-    //for(let i = 0; i < vendedoras.length; i++){
-    //    if(mayor < ventasVendedora(vendedoras[i])){
-    //        mayor = ventasVendedora(vendedoras[i]);
-    //        mayorVendedora = vendedoras[i];
-    //    }
-    //};
     return mayorVendedora;
   };
 //--------------------------------------------------------------------------//
